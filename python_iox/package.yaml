@@ -1,6 +1,6 @@
 descriptor-schema-version: "2.2"
 info:
-  name: python
+  name: python_iox
   version: latest
 app:
   cpuarch: x86_64
