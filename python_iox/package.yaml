@@ -1,0 +1,21 @@
+descriptor-schema-version: "2.2"
+info:
+  name: python
+  version: latest
+app:
+  cpuarch: x86_64
+  env:
+    PATH: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+  kernel-version: 4.4.51
+  resources:
+    cpu: "1000"
+    disk: "2"
+    memory: "1000"
+    network:
+    - interface-name: eth0
+      ports: {}
+    profile: custom
+  startup:
+    rootfs: rootfs.img
+    target: /bin/sh
+  type: lxc
