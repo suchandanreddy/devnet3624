@@ -1,8 +1,6 @@
 FROM alpine:3.3
  
 RUN apk add --update iperf
-
-COPY loop.sh /opt/apps/
  
 LABEL \
  cisco.type=lxc \
