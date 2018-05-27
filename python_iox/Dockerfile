@@ -11,3 +11,5 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 COPY python_web_server.py ./
 
 COPY start.sh /opt/apps/
+
+RUN chmod 777 /opt/apps/start.sh
