@@ -1,0 +1,58 @@
+Docker build:
+
+  docker build -t python_iox . 
+
+  docker images
+
+ioxclient:
+
+sudo ioxclient docker package python_iox .
+
+Install package.tar:
+
+app-hosting install appid python_iox package bootflash:python_iox/package.tar 
+
+Network setup configuration:
+
+interface VirtualPortGroup1
+ ip address 172.16.31.1 255.255.255.0
+ ip nat inside
+ 
+interface GigabitEthernet0/0/0
+ ip nat outside
+ 
+ app-hosting appid python_iox
+  vnic gateway1 virtualportgroup 1 guest-interface 0 guest-ipaddress 172.16.31.2 netmask 255.255.255.0 gateway 172.16.31.1 default
+
+access-list 10 permit 172.16.31.2
+
+ip nat inside source static tcp 172.16.31.2 5000 <gig0/0/0 interface ip address> 55000 extendable
+ip nat inside source list 10 interface GigabitEthernet0/0/0 overload
+ 
+Activate and start:
+ 
+app-hosting activate appid python_iox
+
+app-hosting start appid python_iox
+
+Connect:
+
+app-hosting connect appid python_iox console
+
+Start the python script in container:
+
+/opt/apps/start.sh &
+
+Access URL: http://<gig0/0/0 ip address>:55000/memory
+
+----------------------------------------------
+
+Copy package.tar to /bootflash/python_iox/
+
+mkdir bootflash:python_iox
+copy scp: bootflash:python_iox/
+Address or name of remote host [192.168.172.2]?
+Source username [calo]?
+Source filename [/home/calo/devnet3624/python_iox/package.tar]? /home/calo/devnet3624/python_iox/package.tar
+Destination filename [/iperf_iox/package.tar]?
+Password:
