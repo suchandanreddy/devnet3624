@@ -26,7 +26,7 @@ interface GigabitEthernet0/0/0
 
 access-list 10 permit 172.16.31.2
 
-ip nat inside source static tcp 172.16.31.2 5001 <gig0/0/0 interface ip address> 55000 extendable
+ip nat inside source static tcp 172.16.31.2 5001 <gig0/0/0 interface ip address> 55001 extendable
 ip nat inside source list 10 interface GigabitEthernet0/0/0 overload
  
 Activate and start:
@@ -39,6 +39,11 @@ Connect:
 
 app-hosting connect appid iperf_iox console
 
+iperf commands:
+
+Start iperf server: /usr/bin/iperf -s &
+
+Connect to iperf server: iperf -c <gig0/0/0 ip address> -p 55001
 
 ----------------------------------------------
 
