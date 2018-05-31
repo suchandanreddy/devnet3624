@@ -45,7 +45,7 @@ Start the python script in container:
 
 Access URL: http://<gig0/0/0 ip address>:55000/memory
 
-----------------------------------------------
+--------------------------------------------
 
 Copy package.tar to /bootflash/python_iox/
 
@@ -56,3 +56,17 @@ Source username [calo]?
 Source filename [/home/calo/devnet3624/python_iox/package.tar]? /home/calo/devnet3624/python_iox/package.tar
 Destination filename [/python_iox/package.tar]?
 Password:
+
+--------------------------------------------
+
+Uninstall:
+
+app-hosting stop appid python_iox
+
+app-hosting deactivate appid python_iox
+
+app-hosting uninstall appid python_iox
+
+show command to verify app status:
+
+show app-hosting list
