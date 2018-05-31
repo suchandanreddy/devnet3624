@@ -51,3 +51,18 @@ Source username [calo]?
 Source filename [/home/calo/devnet3624/iperf_iox/package.tar]? /home/calo/devnet3624/iperf_iox/package.tar
 Destination filename [/iperf_iox/package.tar]?
 Password:
+
+----------------------------------------------
+
+
+Uninstall:
+
+app-hosting stop appid iperf_iox
+
+app-hosting deactivate appid iperf_iox
+
+app-hosting uninstall appid iperf_iox
+
+show command to verify app status:
+
+show app-hosting list
