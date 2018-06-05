@@ -20,9 +20,13 @@ interface VirtualPortGroup1
  
 interface GigabitEthernet0/0/0
  ip nat outside
- 
+
+conf t
+
  app-hosting appid python_iox
   vnic gateway1 virtualportgroup 1 guest-interface 0 guest-ipaddress 172.16.31.2 netmask 255.255.255.0 gateway 172.16.31.1 default
+
+end
 
 access-list 10 permit 172.16.31.2
 
