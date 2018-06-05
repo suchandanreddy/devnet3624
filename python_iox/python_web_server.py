@@ -26,7 +26,7 @@ def index():
 	while 1:
 
 		net_connect = ConnectHandler(**device)
-		mem_out = net_connect.send_command_expect('show process memory sorted',expect_string='#')
+		mem_out = net_connect.send_command('show process memory sorted')
 		net_connect.disconnect()
 		line_count = 0
 
