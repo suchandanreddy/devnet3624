@@ -2,14 +2,17 @@
 
 # Setup Instructions
 
+```
 Hostname#conf t
 Enter configuration commands, one per line.  End with CNTL/Z.
 Hostname(config)#iox
 Hostname(config)#end
 Hostname#
+````
 
 Verify IOX-service is running:
 
+```
 Hostname#sh iox-service
 Virtual Service Global State and Virtualization Limits:
 
@@ -39,3 +42,4 @@ IOx service (IOxman) : Running
 Libvirtd             : Running
 
 Hostname#
+```
